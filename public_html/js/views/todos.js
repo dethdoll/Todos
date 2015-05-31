@@ -26,16 +26,16 @@ app.TodoView = Backbone.View.extend({
   // there's a one-to-one correspondance between a **Todo** and a **Todo View**
   // in this app, we set a direct reference on hte model for convenience
   initialize: function() {
-    this.listenTo(this.model, 'change', 'this.render');
-    this.listenTo(this.model, 'destroy', 'this.remove');
-    this.listenTo(this.model, 'visible', 'this.toggleVisible');
+    this.listenTo(this.model, 'change', this.render);
+    this.listenTo(this.model, 'destroy', this.remove);
+    this.listenTo(this.model, 'visible', this.toggleVisible);
   },
   
   // Re-renders the titles of the todo Item
   render: function() {
     this.$el.html( this.template( this.model.attributes ) );
     
-    this.$e1.toggleClass( 'completed', this.model.get('completed') );
+    this.$el.toggleClass( 'completed', this.model.get('completed') );
     this.toggleVisible();
     
     this.$input = this.$('.edit');

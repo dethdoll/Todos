@@ -2,7 +2,7 @@
 // Todo router 
 // -----------
 
-var Wordspace = Backbone.Router.extend({
+var Workspace = Backbone.Router.extend({
   
   routes: {
     '*filter': 'setFilter'
