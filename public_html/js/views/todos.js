@@ -8,7 +8,7 @@ var app = app || {};
 app.TodoView = Backbone.View.extend({
   
   // .. is a list tag
-  tagname: 'li',
+  tagName: 'li',
   
   // Cache the template function for a single item
   template: _.template( $('#item-template').html() ),
