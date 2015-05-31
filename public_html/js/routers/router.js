@@ -1,7 +1,29 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
+// Todo router 
+// -----------
 
+var Wordspace = Backbone.Router.extend({
+  
+  routes: {
+    '*filter': 'setFilter'
+  },
+  
+  setFilter: function(param) {
+    
+    // Set the current filter to be used
+    if (param) {
+      param = param.trim();
+    }
+    
+    app.TodoFilter = param || '';
+    
+    // Trigger a collection filter event, causing, hiding/unhiding
+    // of Todo view items
+    app.Todos.trigger('filter');
+    
+  }
+  
+});
+
+app.TodoRouter = new Workspace();
+Backbone.history.start();
